@@ -22,15 +22,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
-
     protected NavDrawer navDrawer;
 
     @Override
     protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
-
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-
     }
 
     @Override
@@ -48,24 +45,15 @@ public abstract class BaseActivity extends AppCompatActivity {
                 .alpha(0)
                 .setListener(new Animator.AnimatorListener() {
                     @Override
-                    public void onAnimationStart(Animator animator) {
-
-                    }
-
+                    public void onAnimationStart(Animator animator) {}
                     @Override
                     public void onAnimationEnd(Animator animator) {
                         listner.onFadeOutEnd();
                     }
-
                     @Override
-                    public void onAnimationCancel(Animator animator) {
-
-                    }
-
+                    public void onAnimationCancel(Animator animator) {}
                     @Override
-                    public void onAnimationRepeat(Animator animator) {
-
-                    }
+                    public void onAnimationRepeat(Animator animator) {}
                 }).setDuration(300).start();
     }
 

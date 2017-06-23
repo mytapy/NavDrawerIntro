@@ -31,11 +31,13 @@ public class NavDrawer {
         navDrawerViewGroup = (ViewGroup) baseActivity.findViewById(R.id.nav_drawer_view);
 
         if (drawerLayout == null || navDrawerViewGroup == null) {
-            throw new RuntimeException("To use this class you must have views with id_s of drawer_layout and nav_drawer");
+            throw new RuntimeException("To use this class you must have views with id_s " +
+                    "of drawer_layout and nav_drawer");
         }
 
         Toolbar toolbar = baseActivity.getToolbar();
-        mToogle = new ActionBarDrawerToggle(baseActivity, drawerLayout, toolbar, R.string.open, R.string.close);
+        mToogle = new ActionBarDrawerToggle(baseActivity, drawerLayout, toolbar,
+                R.string.open, R.string.close);
         drawerLayout.addDrawerListener(mToogle);
         mToogle.syncState();
 
@@ -207,7 +209,8 @@ public class NavDrawer {
             navDrawer.baseActivity.fadeOut(new BaseActivity.FadeOutListener() {
                 @Override
                 public void onFadeOutEnd() {
-                    navDrawer.baseActivity.startActivity(new Intent(navDrawer.baseActivity, targetActivity));
+                    navDrawer.baseActivity.startActivity(new Intent(navDrawer.baseActivity,
+                            targetActivity));
                     navDrawer.baseActivity.finish();
                 }
             });
